@@ -1,90 +1,8 @@
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
+{% extends 'base.html' %}
 
-<!-- 
-THEME: Kross - Creative Portfolio Template
-VERSION: 1.0.0
-AUTHOR: Themefisher
-
-HOMEPAGE: https://themefisher.com/products/kross-creative-portfolio-template/
-DEMO: https://demo.themefisher.com/kross/
-GITHUB: https://github.com/themefisher/meghna-onepage-html5-business-template
-
-Get HUGO Version : https://gethugothemes.com/products/kross-hugo-theme/
-
-WEBSITE: https://themefisher.com
-TWITTER: https://twitter.com/themefisher
-FACEBOOK: https://www.facebook.com/themefisher
--->
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-  <!-- Basic Page Needs
-  ================================================== -->
-  <meta charset="utf-8">
-  <title>Kross - Creative Portfolio Template</title>
-
-  <!-- Mobile Specific Metas
-  ================================================== -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Creative Portfolio Template">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Kross Template v1.0">
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
-  
-  <!-- ** Plugins Needed for the Project ** -->
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
-  <!-- slick slider -->
-  <link rel="stylesheet" href="{% static 'plugins/slick/slick.css' %}">
-  <!-- themefy-icon -->
-  <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
-
-  <!-- Main Stylesheet -->
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-</head>
-<body>
-  
-
-<header class="navigation fixed-top">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="index.html"><img src="{% static 'images/logo.png' %}" alt="Myself"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="blog.html">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
+{% block content %}
 
 <!-- hero area -->
 <section class="hero-area bg-primary" id="parallax">
@@ -208,27 +126,48 @@ FACEBOOK: https://www.facebook.com/themefisher
       <div class="col-lg-12 text-center">
         <h2 class="section-title">Experience</h2>
       </div>
+
+    {% for exp in experience %}
+      <div class="col-lg-3 col-md-4 text-center">
+        {% comment %} <img src="{% static 'images/experience/icon-1.png' %}" alt="icon"> {% endcomment %}
+
+        {% if exp.cover_image %}
+        <img src="{{ exp.cover_image.url }}" alt="icon">
+        {% endif %}
+        <p class="mb-0">{{ exp.start_date }} - {% if exp.end_date %}{{ exp.end_date }} {% else %}Present{% endif %} </p>
+        <h4>{{ exp.title }}</h4>
+        <h6 class="text-light">{{ exp.company_name }}</h6>
+      </div>
+      {% endfor %}
+
+
+      {% comment %}
       <div class="col-lg-3 col-md-4 text-center">
         <img src="images/experience/icon-1.png" alt="icon">
         <p class="mb-0">Jan 2007 - Feb 2009</p>
         <h4>Junior UX Designer</h4>
         <h6 class="text-light">WEBEX</h6>
       </div>
+
       <div class="col-lg-3 col-md-4 text-center">
         <img src="images/experience/icon-2.png" alt="icon">
         <p class="mb-0">Mar 2009 - Aug 2014</p>
         <h4>UX & UI Designer</h4>
         <h6 class="text-light">AUGMEDIX</h6>
       </div>
+
       <div class="col-lg-3 col-md-4 text-center">
         <img src="images/experience/icon-3.png" alt="icon">
         <p class="mb-0">Sep 2014 - Present</p>
         <h4>Senior UI Designer</h4>
         <h6 class="text-light">THEMEFISHER</h6>
-      </div>
+      </div> {% endcomment %}
+
+
     </div>
   </div>
 </section>
+
 <!-- ./experience -->
 
 <!-- education -->
@@ -238,11 +177,30 @@ FACEBOOK: https://www.facebook.com/themefisher
       <div class="col-lg-12 text-center">
         <h2 class="section-title">Education</h2>
       </div>
+      
+      {% for edu in Education %}
+        <div class="col-lg-6 col-md-6 mb-80">
+
+          {% if edu.cover_image %}
+          <img src="{{ edu.cover_image.url }}" alt="icon">
+          {% endif %}
+          <div class="d-flex">
+            <div class="mr-lg-5 mr-3">
+              <p class="text-dark mb-1">{{ edu.end_date }}</p>
+                <h4>{{ edu.title }}</h4>
+                <p class="mb-0 text-light">{{ edu.university_name }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+      {% comment %}
       <div class="col-lg-6 col-md-6 mb-80">
         <div class="d-flex">
           <div class="mr-lg-5 mr-3">
             <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
           </div>
+
           <div>
             <p class="text-dark mb-1">2006</p>
             <h4>Marters in UX Design</h4>
@@ -283,7 +241,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             <p class="text-dark mb-1">1998</p>
             <h4>Secondary School Certificate</h4>
             <p class="mb-0 text-light">Cardiff School</p>
-          </div>
+          </div>{% endcomment %}
         </div>
       </div>
     </div>
@@ -539,79 +497,4 @@ FACEBOOK: https://www.facebook.com/themefisher
   </div>
 </section>
 <!-- /blog -->
-
-<!-- contact -->
-<section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Contact Info</h2>
-      </div>
-      <div class="col-lg-8 mx-auto">
-        <div class="bg-white rounded text-center p-5 shadow-down">
-          <h4 class="mb-80">Contact Form</h4>
-          <form action="#" class="row">
-            <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4" required>
-            </div>
-            <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4" required>
-            </div>
-            <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
-                placeholder="Type Message Here" required></textarea>
-            </div>
-            <div class="col-lg-6 col-10 mx-auto">
-              <button class="btn btn-primary w-100">send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /contact -->
-
-<!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">steve.fruits@email.com</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Phone</h5>
-          <p class="text-white paragraph-lg font-secondary">+880 2544 658 256</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Address</h5>
-          <p class="text-white paragraph-lg font-secondary">125/A, CA Commercial Area, California, USA</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">Copyright &copy;<script>
-        var CurrentYear = new Date().getFullYear()
-        document.write(CurrentYear)
-      </script> Designed &amp; Developed by <a class="text-white-50" href="Themefisher">Themefisher</a></p>
-  </div>
-</footer>
-<!-- /footer -->
-
-<!-- jQuery -->
-<script src="plugins/jQuery/jquery.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
-<!-- slick slider -->
-<script src="plugins/slick/slick.min.js"></script>
-<!-- filter -->
-<script src="plugins/shuffle/shuffle.min.js"></script>
-
-<!-- Main Script -->
-<script src="js/script.js"></script>
-
-</body>
-</html>
+{% endblock content %}

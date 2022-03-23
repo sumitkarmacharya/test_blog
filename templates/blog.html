@@ -20,7 +20,7 @@ WEBSITE: https://themefisher.com
 TWITTER: https://twitter.com/themefisher
 FACEBOOK: https://www.facebook.com/themefisher
 -->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,18 +38,19 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="author" content="Themefisher">
   <meta name="generator" content="Themefisher Kross Template v1.0">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
   
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
   <!-- slick slider -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="{% static 'plugins/slick/slick.css' %}">
   <!-- themefy-icon -->
-  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
 
   <!-- Main Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
 
 </head>
 <body>
@@ -57,31 +58,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 <header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="index.html"><img src="images/logo.png" alt="Myself"></a>
+    <a class="navbar-brand font-tertiary h3" href="index.html"><img src="{% static 'images/logo.png' %}" alt="Myself"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
       aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="blog.html">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-    </div>
+    {% include 'navigation.html' %}
   </nav>
 </header>
 
@@ -111,7 +94,7 @@ FACEBOOK: https://www.facebook.com/themefisher
     <div class="row">
         <div class="col-lg-4 col-sm-6 mb-4">
           <article class="card shadow">
-            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+            <img class="rounded card-img-top" src="{% static 'images/blog/post-5.jpg' %}" alt="post-thumb">
             <div class="card-body">
               <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
               </h4>
@@ -124,7 +107,7 @@ FACEBOOK: https://www.facebook.com/themefisher
         </div>
       <div class="col-lg-4 col-sm-6 mb-4">
         <article class="card shadow">
-          <img class="rounded card-img-top" src="images/blog/post-2.jpg" alt="post-thumb">
+          <img class="rounded card-img-top" src="{% static 'images/blog/post-2.jpg' %}" alt="post-thumb">
           <div class="card-body">
             <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
             </h4>
@@ -137,7 +120,7 @@ FACEBOOK: https://www.facebook.com/themefisher
       </div>
       <div class="col-lg-4 col-sm-6 mb-4">
         <article class="card shadow">
-          <img class="rounded card-img-top" src="images/blog/post-3.jpg" alt="post-thumb">
+          <img class="rounded card-img-top" src="{% static 'images/blog/post-3.jpg' %}" alt="post-thumb">
           <div class="card-body">
             <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
             </h4>
@@ -150,7 +133,7 @@ FACEBOOK: https://www.facebook.com/themefisher
       </div>
       <div class="col-lg-4 col-sm-6 mb-4">
         <article class="card shadow">
-          <img class="rounded card-img-top" src="images/blog/post-4.jpg" alt="post-thumb">
+          <img class="rounded card-img-top" src="{% static 'images/blog/post-4.jpg' %}" alt="post-thumb">
           <div class="card-body">
             <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
             </h4>
@@ -163,7 +146,7 @@ FACEBOOK: https://www.facebook.com/themefisher
       </div>
       <div class="col-lg-4 col-sm-6 mb-4">
         <article class="card shadow">
-          <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+          <img class="rounded card-img-top" src="{% static 'images/blog/post-5.jpg' %}" alt="post-thumb">
           <div class="card-body">
             <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
             </h4>
@@ -176,7 +159,7 @@ FACEBOOK: https://www.facebook.com/themefisher
       </div>
       <div class="col-lg-4 col-sm-6 mb-4">
         <article class="card shadow">
-          <img class="rounded card-img-top" src="images/blog/post-2.jpg" alt="post-thumb">
+          <img class="rounded card-img-top" src="{% static 'images/blog/post-2.jpg' %}" alt="post-thumb">
           <div class="card-body">
             <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
             </h4>
@@ -204,25 +187,25 @@ FACEBOOK: https://www.facebook.com/themefisher
       <div class="col-12">
         <div class="client-logo-slider d-flex align-items-center">
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-1.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-2.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-3.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-4.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-5.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-1.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-2.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-3.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-4.png' %}" alt="client-logo"></a>
           <a href="contact.html" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+              src="{% static 'images/clients-logo/client-logo-5.png' %}" alt="client-logo"></a>
         </div>
       </div>
     </div>
